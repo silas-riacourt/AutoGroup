@@ -37,7 +37,7 @@ function checkLoading() {
     if (list == null) {
 
     } else {
-        setTimeout(treeLoad, 700);
+        setTimeout(treeLoad, 600);
         clearInterval(interval);
     }
 };
@@ -115,7 +115,7 @@ function treeCheck(i) {
     if (++i < 6) {
         setTimeout(function () {
             treeCheck(i);
-        }, 1000);
+        }, 800);
     }
 
 };
@@ -142,8 +142,11 @@ function treeLoad() {
  * Ouvre la section  avec l'id ID
  */
 function openSection(id) {
-
-    list.childNodes[id].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].click();
+    if (list.childNodes[id].getAttribute("aria-expanded") != "true") {
+        list.childNodes[id].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].click();
+    }else{
+        console.log("erreur : section déjà ouverte");
+    }
 
 };
 
