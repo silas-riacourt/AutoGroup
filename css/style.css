@@ -1,0 +1,170 @@
+body {
+    background-color: #f39c12;
+    color: white;
+}
+
+h2 {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 40px;
+    margin-bottom: 0;
+}
+
+h1 {
+    color: #111;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 34px;
+    font-weight: bold;
+    letter-spacing: -1px;
+    line-height: 1;
+    text-align: center;
+}
+
+
+
+* {
+    outline: 0;
+    font-family: sans-serif
+}
+
+.bouton_section {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Reset Select */
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: 0;
+    box-shadow: none;
+    border: 0 !important;
+    background: #2c3e50;
+    background-image: none;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+    display: none;
+}
+
+/* Custom Select */
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 3em;
+    line-height: 3;
+    background: #2c3e50;
+    overflow: hidden;
+    border-radius: .25em;
+}
+
+select {
+    flex: 1;
+    padding: 0 .5em;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Arrow */
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0 1em;
+    background: #34495e;
+    cursor: pointer;
+    pointer-events: none;
+    -webkit-transition: .25s all ease;
+    -o-transition: .25s all ease;
+    transition: .25s all ease;
+}
+
+/* Transition */
+.select:hover::after {
+    color: #f39c12;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+
+    33% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    background: #233140;
+    box-shadow: 0 3px 2px 0 rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    height: 45px;
+    padding: 0 30px;
+    color: #fff;
+    font-family: Lato, Arial, sans-serif;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    will-change: transform;
+}
+
+.button:hover {
+    background: #1a2530;
+    box-shadow: 0 4px 17px rgba(0, 0, 0, 0.2);
+    transform: translate3d(0, -2px, 0);
+}
+
+.button:active {
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.1);
+    transform: translate3d(0, 1px, 0);
+}
+
+.pulse {
+    position: relative;
+}
+
+.pulse:before,
+.pulse:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+    margin: auto;
+}
+
+.pulse:before {
+    animation: pulse 1.5s infinite linear;
+}
+
+.pulse:after {
+    animation: pulse 2s 0.4s infinite linear;
+}
+
+.pulse:hover:before,
+.pulse:hover:after {
+    display: none;
+}

@@ -1,0 +1,24 @@
+{
+    "manifest_version": 2,
+    "name": "Fast",
+    "description": "Fast load MyPlanning", 
+    "version": "0.2",
+    "permissions": [ 
+     "http://*/*",
+     "https://*/*",
+     "storage"
+    ],
+    "browser_action": {   
+     "default_icon" : "img/icon.png",
+     "default_popup": "app/popup.html"
+    },
+    "icons": {
+     "128" : "img/icon.png"
+    },
+       "content_scripts": [
+        {
+          "matches": ["https://planning.univ-rennes1.fr/*"],
+          "js": ["scripts/load.js"]
+        }
+      ]
+   }
