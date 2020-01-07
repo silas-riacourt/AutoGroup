@@ -29,4 +29,4 @@ Vous devriez maintenant voir un logo **calendrier** apparaitre dans vos **extens
 2.  Valider
 3.  Vous pouvez maintenant vous rendre sur votre EDT et l'extension se charge de faire le reste.
 
-
+![Autogroup image](http://silasriacourt.fr/docs/autogroup.png)
