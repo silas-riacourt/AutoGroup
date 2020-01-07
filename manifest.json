@@ -2,7 +2,13 @@
     "manifest_version": 2,
     "name": "AutoGroup",
     "description": "Charge votre emploie en fonction de votre groupe", 
-    "version": "1.0",
+    "version": "1.5",
+    "applications": {
+      "gecko": {
+        "id": "silas.riacourt@gmail.com",
+        "strict_min_version": "42.0"
+      }
+    },
     "permissions": [ 
      "http://*/*",
      "https://*/*",

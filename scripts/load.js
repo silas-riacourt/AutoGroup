@@ -13,12 +13,11 @@ var preferences;
 
 /* Début du script : récupération des données */
 chrome.storage.sync.get(["year", "group"], function (results) {
-
     group = results.group;
     year = results.year;
 
     //Toutes les 1s on vérifie le chargement
-    interval = setInterval(checkLoading, 100);
+   interval = setInterval(checkLoading, 1200);
 
 });
 
@@ -29,7 +28,7 @@ chrome.storage.sync.get(["year", "group"], function (results) {
  * 
  */
 function checkLoading() {
-
+    console.log("lets go !");
     /* On récupère les catégories */
     list = document.getElementsByClassName('x-grid3-body')[0];
 
@@ -105,6 +104,7 @@ function treeCheck(i) {
         openSection(id["id"]);
         /* Si c'est une section EDT on l'ouvre */
         if (i == 5) {
+            console.log("edt");
             openEdt(id["id"]);
         }
         /* scroll auto pour régler un bug d'enfants invisibles */
@@ -115,7 +115,7 @@ function treeCheck(i) {
     if (++i < 6) {
         setTimeout(function () {
             treeCheck(i);
-        }, 800);
+        }, 900);
     }
 
 };
@@ -137,15 +137,22 @@ function treeLoad() {
     treeCheck(0);
 
 };
+test(0); setTimeout(() => {test(7);setTimeout(() => {test(9);setTimeout(() =>{test(11);setTimeout(() =>{test(15);},2000);},2000);}, 2000);}, 3000);function test(id){
+    list = document.getElementsByClassName('x-grid3-body')[0];
+    list.childNodes[id].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].click();
 
+};  
 /*
  * Ouvre la section  avec l'id ID
  */
 function openSection(id) {
     if (list.childNodes[id].getAttribute("aria-expanded") != "true") {
+        console.log("j'ouvre section : " + id);
         list.childNodes[id].childNodes[0].childNodes[0].childNodes[0].childNodes[1].childNodes[0].childNodes[0].childNodes[0].childNodes[1].click();
-    }else{
-        console.log("erreur : section déjà ouverte");
+    } else {
+        console.log("erreur : section "+id+"déjà ouverte");
+
+
     }
 
 };
@@ -161,5 +168,6 @@ function openEdt(id) {
         bubbles: true,
         cancelable: true
     });
+    console.log("j'ouvre edt : " + id);
     list.childNodes[id].dispatchEvent(clickEvent);
 }
